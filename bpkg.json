@@ -1,0 +1,6 @@
+{
+  "name": "mc-server-deployments",
+  "version": "0.0.1",
+  "description": "Scripts to deploy version controlled mc servers",
+  "scripts": [ "mcsd.sh" ]
+}

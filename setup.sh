@@ -64,7 +64,7 @@ setup () {
 }
 
 ## make targets
-BIN="mcsd.sh"
+BIN="mcsd"
 if [ -z "$PREFIX" ]; then
   if [ "$(whoami)" == "root" ]; then
     PREFIX="/usr/local"

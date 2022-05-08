@@ -126,4 +126,8 @@ elif [ "$1" = "run" ]; then
 elif [ "$1" = "copy" ]; then
   shift
   copy_src_files "$@"
+elif [ "$1" = "cr" ]; then
+  shift
+  copy_src_files "$@"
+  start_server "$@"
 fi

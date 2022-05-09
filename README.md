@@ -1,4 +1,10 @@
-# Installation
+# Introduction
+
+MCSD is a small script created for bukkit server configuration git repositories.
+It supports using ENV variables inside configuration files and can create and run the server with one simple command.
+This eases development of mc servers.
+
+## Installation
 
 Run the following command:
 
@@ -8,9 +14,10 @@ curl -Lo- "https://raw.githubusercontent.com/garagepoort/mc-server-deployments/m
 
 ## Commands
 ```
-mcsd copy
-mcsd run
-mcsd deploy
+mcsd install | copy everything from server_source to server_dist and replace environment variables.
+mcsd run | start the minecraft server. Make sure to have 
+mcsd ir | short form for running `mcsd install` and `mcsd run` in one command
+mcsd deploy <branchname> <directory> | deploy a branch into a given directory. The given directory should exist and contain the .env file 
 ```
 
 ## .env file

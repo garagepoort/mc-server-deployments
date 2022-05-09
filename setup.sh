@@ -1,14 +1,4 @@
 #!/usr/bin/env bash
-#
-# #             #
-# #mmm   mmmm   #   m   mmmm
-# #" "#  #" "#  # m"   #" "#
-# #   #  #   #  #"#    #   #
-# ##m#"  ##m#"  #  "m  "#m"#
-#        #              m  #
-#        "               ""
-#        bash package manager
-
 VERSION="1.2.0"
 TAG=${TAG:-$VERSION}
 BRANCH=${BRANCH:-$TAG}

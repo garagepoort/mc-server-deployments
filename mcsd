@@ -139,6 +139,6 @@ elif [ "$1" = "install" ]; then
   install "$@"
 elif [ "$1" = "ir" ]; then
   shift
-  copy_src_files "$@"
+  install "$@"
   start_server "$@"
 fi

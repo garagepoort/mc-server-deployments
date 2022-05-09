@@ -9,7 +9,7 @@
 #        "               ""
 #        bash package manager
 
-VERSION="1.1.0"
+VERSION="1.2.0"
 TAG=${TAG:-$VERSION}
 BRANCH=${BRANCH:-$TAG}
 REMOTE=${REMOTE:-https://github.com/garagepoort/mc-server-deployments.git}

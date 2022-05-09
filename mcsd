@@ -2,7 +2,7 @@
 # exit when any command fails
 set -e
 
-replace_env_vars() {
+replace_env_vars_unix() {
   while IFS= read -r configFile; do
     echo "replacing environment variables"
     echo "$configFile"
@@ -74,25 +74,33 @@ copy_src_files() {
   copy_files "./server_source" "$destinationDirectory"
 }
 
+replace_env_vars_os() {
+    input=".envfiles"
+    envVars=".env"
+    destinationDirectory=${1:-server_dist}
+
+    case "$(uname -s)" in
+
+    Darwin | Linux)
+      echo "Running on unix"
+      replace_env_vars_unix "$input" "$envVars" "$destinationDirectory"
+      ;;
+
+    CYGWIN* | MINGW32* | MSYS* | MINGW*)
+      echo "Running on Windows"
+      c:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -noprofile -executionpolicy bypass ./build/replace_env_vars "$input" "$envVars" "$destinationDirectory"
+      ;;
+    esac
+}
+
 start_server() {
-
-  input=".envfiles"
-  envVars=".env"
-
-  case "$(uname -s)" in
-
-  Darwin | Linux)
-    echo "Running on unix"
-    replace_env_vars "$input" "$envVars" "server_dist"
-    ;;
-
-  CYGWIN* | MINGW32* | MSYS* | MINGW*)
-    echo "Running on Windows"
-    c:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -noprofile -executionpolicy bypass ./build/replace_env_vars "$input" "$envVars" "server_dist"
-    ;;
-  esac
-
   cd server_dist && java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar server.jar
+}
+
+install() {
+  destinationDirectory=${1:-server_dist}
+  copy_src_files "$destinationDirectory"
+  replace_env_vars_os "$destinationDirectory"
 }
 
 deploy() {
@@ -113,7 +121,7 @@ deploy() {
     fi
     copy_src_files "$2"
     # Assuming we are on the master branch we pull the latest changes.
-    replace_env_vars $input $envVars "$2"
+    replace_env_vars_unix $input $envVars "$2"
   fi
 }
 
@@ -126,7 +134,10 @@ elif [ "$1" = "run" ]; then
 elif [ "$1" = "copy" ]; then
   shift
   copy_src_files "$@"
-elif [ "$1" = "cr" ]; then
+elif [ "$1" = "install" ]; then
+  shift
+  install "$@"
+elif [ "$1" = "ir" ]; then
   shift
   copy_src_files "$@"
   start_server "$@"

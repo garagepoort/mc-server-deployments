@@ -56,11 +56,7 @@ setup () {
 ## make targets
 BIN="mcsd"
 if [ -z "$PREFIX" ]; then
-  if [ "$(whoami)" == "root" ]; then
     PREFIX="/usr/local"
-  else
-    PREFIX="$HOME/.local"
-  fi
 fi
 
 # All 'mc-server-deployments' supported commands

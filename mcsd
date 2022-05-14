@@ -3,10 +3,13 @@
 set -e
 
 replace_env_vars_unix() {
-  while IFS= read -r configFile; do
+  while IFS= read -r configFile || [ -n "$configFile" ]; do
     echo "replacing environment variables"
     echo "$configFile"
-    while IFS= read -r envVar; do
+    configFile=${configFile%$'\r'}
+
+    while IFS= read -r envVar || [ -n "$envVar" ]; do
+      envVar=${envVar%$'\r'}
       IFS='=' read -r key envValue <<<"$envVar"
       if [[ "$OSTYPE" == "darwin"* ]]; then
         sed -i "" "s|\${$key}|$envValue|g" "${3}/${configFile}"
@@ -14,6 +17,7 @@ replace_env_vars_unix() {
         sed -i "s|\${$key}|$envValue|g" "${3}/${configFile}"
       fi
     done <"$2"
+
   done <"$1"
 }
 

@@ -9,7 +9,7 @@ This eases development of mc servers.
 Run the following command:
 
 ```
-curl -Lo- "https://raw.githubusercontent.com/garagepoort/mc-server-deployments/master/setup.sh" | bash
+curl -Lo- "https://raw.githubusercontent.com/garagepoort/mc-server-deployments/master/setup.sh" | sudo bash
 ```
 
 ## Commands

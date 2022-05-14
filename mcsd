@@ -79,18 +79,19 @@ replace_env_vars_os() {
     envVars=".env"
     destinationDirectory=${1:-server_dist}
 
-    case "$(uname -s)" in
-
-    Darwin | Linux)
-      echo "Running on unix"
-      replace_env_vars_unix "$input" "$envVars" "$destinationDirectory"
-      ;;
-
-    CYGWIN* | MINGW32* | MSYS* | MINGW*)
-      echo "Running on Windows"
-      c:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -noprofile -executionpolicy bypass ./build/replace_env_vars "$input" "$envVars" "$destinationDirectory"
-      ;;
-    esac
+    replace_env_vars_unix "$input" "$envVars" "$destinationDirectory"
+#    case "$(uname -s)" in
+#
+#    Darwin | Linux)
+#      echo "Running on unix"
+#      replace_env_vars_unix "$input" "$envVars" "$destinationDirectory"
+#      ;;
+#
+#    CYGWIN* | MINGW32* | MSYS* | MINGW*)
+#      echo "Running on Windows"
+#      c:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -noprofile -executionpolicy bypass ./build/replace_env_vars "$input" "$envVars" "$destinationDirectory"
+#      ;;
+#    esac
 }
 
 start_server() {

@@ -54,5 +54,3 @@ In this file we need to place all our sensitive information or environment depen
 - add your variable inside the .env-example file. This file has only an informational purpose.
 - Use your environment variable inside the configuration file you need.
 - Add the path to that configuration file inside the .envfiles file. (make sure the last line of the file is always an empty line.)
-
-More information on env variables can be found here: https://docs.google.com/document/d/1sSMr_pkasmBb7OfRowXDUczZgMY07AW3UtHU6O9aYiQ

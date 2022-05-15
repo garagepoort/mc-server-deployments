@@ -8,6 +8,16 @@ This eases development of mc servers.
 
 Run the following command:
 
+### Linux
+```
+curl -Lo- "https://raw.githubusercontent.com/garagepoort/mc-server-deployments/master/setup.sh" | sudo bash
+```
+
+### Windows
+
+To run mcsd on windows you need a linux terminal. I recommend using git bash as it is installed automatically with a default git installation on Windows.
+
+- Open Git Bash as administrator. Run the following command:
 ```
 curl -Lo- "https://raw.githubusercontent.com/garagepoort/mc-server-deployments/master/setup.sh" | sudo bash
 ```

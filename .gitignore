@@ -1,48 +1,8 @@
 # Blockstackers-Dev-Server
 .idea/
-.history/
-
-# - World Files
-world
-world_nether
-world_the_end
-crash-reports
-arena/region
-spawn/region
-# - Config
-*.db
-*.sqlite
-*.dat
-usercache.json
-ops.json
-banned-ips.json
-banned-players.json
-*.dat_old
-
-whitelist.json
-
-server_dist/*
-server_dist
-
-# exclude everything
-plugins/*
-
-# exception to the rule
-!plugins/*.jar
-
-# - Temp
-*Logs
-*logs
-*.log
-*.lck
-*.lock
-*.old
-*.hprof
-cache
-
-# - Misc
-.console_history
-
-#ENVIRONMENT
+# MCSD files
+server_dist/
 .env
-.DS_Store
+# MCSD files
+server_dist/
+.env

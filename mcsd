@@ -108,6 +108,21 @@ install() {
   replace_env_vars_os "$destinationDirectory"
 }
 
+init() {
+  echo "MCSD init started."
+  mkdir -p server_source
+  echo "server_source initialized"
+  touch -a .env-example
+  echo ".env-example created"
+  touch -a .env
+  echo ".env created"
+  touch -a .envfiles
+  echo ".envfiles created"
+  touch -a .gitignore
+  echo $'# MCSD files\nserver_dist/\n.env' >> .gitignore
+  echo "MCSD init completed."
+}
+
 deploy() {
   input=".envfiles"
   envVars="${2}/.env"
@@ -142,6 +157,9 @@ elif [ "$1" = "copy" ]; then
 elif [ "$1" = "install" ]; then
   shift
   install "$@"
+elif [ "$1" = "init" ]; then
+  shift
+  init "$@"
 elif [ "$1" = "ir" ]; then
   shift
   install "$@"

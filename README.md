@@ -24,23 +24,22 @@ curl -Lo- "https://raw.githubusercontent.com/garagepoort/mc-server-deployments/m
 
 ## Commands
 ```
+mcsd init | create the files needed for a mcsd repository. Use this if you want to create a repository from scratch
 mcsd install | copy everything from server_source to server_dist and replace environment variables.
 mcsd run | start the minecraft server. Make sure to have 
 mcsd ir | short form for running `mcsd install` and `mcsd run` in one command
 mcsd deploy <branchname> <directory> | deploy a branch into a given directory. The given directory should exist and contain the .env file 
 ```
 
-## .env file
-Before you can run the server you need to add a `.env` file in the root of your project.
-You can just copy the `.env-example` file.
-The .env contains all the environment specific properties. You will use this mostly for credentials.
-
 ## Source Files
 
 You will notice there is a directory called "server_source". This directory contains all the configuration files for the server.
-Basically at startup of the server these files will be copied to their correct location. For plugins the files will be copied to the `plugins` directory.
-
 The server_source directory should only contain configuration files. No .db, .dat or any file that contains player specific data should be added here.
+
+## .env file
+This files contains all the necessary properties which need to injected into the server configuration files.
+If you want to run the server repository locally, you will need to create one.
+The .env file should always be added to the .gitignore file as it contains credentials.
 
 ## Environment variables
 The concept of environment variables is introduced. 
@@ -54,6 +53,6 @@ In this file we need to place all our sensitive information or environment depen
 ### Adding new variables.
 - add your variable inside the .env-example file. This file has only an informational purpose.
 - Use your environment variable inside the configuration file you need.
-- Add the path to that configuration file inside the .env-files file. (make sure the last line of the file is always an empty line.)
+- Add the path to that configuration file inside the .envfiles file. (make sure the last line of the file is always an empty line.)
 
 More information on env variables can be found here: https://docs.google.com/document/d/1sSMr_pkasmBb7OfRowXDUczZgMY07AW3UtHU6O9aYiQ

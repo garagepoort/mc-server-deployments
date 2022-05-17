@@ -139,9 +139,6 @@ if [ "$1" = "deploy" ]; then
 elif [ "$1" = "run" ]; then
   shift
   start_server "$@"
-elif [ "$1" = "copy" ]; then
-  shift
-  copy_src_files "$@"
 elif [ "$1" = "install" ]; then
   shift
   install "$@"
@@ -152,4 +149,11 @@ elif [ "$1" = "ir" ]; then
   shift
   install "$@"
   start_server "$@"
+else
+  echo 'No command given!'
+  echo 'Possible commands:'
+  echo '  - mcsd init'
+  echo '  - mcsd install'
+  echo '  - mcsd run'
+  echo '  - mcsd ir'
 fi

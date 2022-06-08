@@ -87,7 +87,14 @@ replace_env_vars_os() {
 }
 
 start_server() {
-  cd server_dist && java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar server.jar
+  PORT=5005
+  while :
+  do
+          ss -lpn | grep -q ":$PORT " || break
+          PORT=$((PORT+1))
+  done
+  echo "Debug started on port $PORT"
+  cd server_dist && java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address="$PORT" -jar server.jar
 }
 
 install() {

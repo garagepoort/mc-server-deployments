@@ -10,7 +10,7 @@ Run the following command:
 
 ### Linux
 ```
-sudo curl -Lo- "https://raw.githubusercontent.com/garagepoort/mc-server-deployments/master/setup.sh" | bash
+sudo curl -Lo- "https://raw.githubusercontent.com/garagepoort/mc-server-deployments/master/setup.sh" | sudo bash
 ```
 
 ### Windows

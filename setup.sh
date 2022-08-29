@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-VERSION="1.8.0"
+VERSION="1.9.0"
 TAG=${TAG:-$VERSION}
 BRANCH=${BRANCH:-$TAG}
 REMOTE=${REMOTE:-https://github.com/garagepoort/mc-server-deployments.git}

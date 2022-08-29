@@ -58,7 +58,6 @@ copy_files() {
 }
 
 copy_src_files() {
-  shopt -s globstar
   echo "Copying started. This might take some time."
   counter=0
   destinationDirectory=${1:-server_dist}

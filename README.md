@@ -19,7 +19,7 @@ To run mcsd on windows you need a linux terminal. I recommend using git bash as 
 
 - Open Git Bash as administrator. Run the following command:
 ```
-curl -Lo- "https://raw.githubusercontent.com/garagepoort/mc-server-deployments/master/setup.sh" | sudo bash
+curl -Lo- "https://raw.githubusercontent.com/garagepoort/mc-server-deployments/master/setup.sh" | bash
 ```
 
 ## Commands
